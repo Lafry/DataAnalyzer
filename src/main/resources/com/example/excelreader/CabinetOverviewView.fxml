@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="1291.0" prefWidth="1503.0" style="-fx-background-color: WHITE" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.excelreader.Controller.CabinetOverviewController">
+   <Label fx:id="nomeCabina" layoutX="636.0" layoutY="19.0" text="NomeCabinaDataScelta"/>
+   <Button fx:id="backButton" layoutX="31.0" layoutY="19.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0"
+           prefWidth="33.0">
+      <graphic>
+         <ImageView fitHeight="16.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/backIcon.png"/>
+         </ImageView>
+      </graphic>
+   </Button>
+   <TextField fx:id="valueToFindTextField" layoutX="175.0" layoutY="956.0"
+              onKeyPressed="#cercaValoreTextFieldKeyPressed" prefHeight="25.0" prefWidth="78.0"/>
+   <TableView fx:id="valueToFindTable" layoutX="38.0" layoutY="1018.0" prefHeight="200.0" prefWidth="227.0">
+      <columns>
+         <TableColumn fx:id="valueToFindColumnOra" prefWidth="45.0" text="Ora"/>
+         <TableColumn fx:id="valueToFindColumnValore" prefWidth="174.0" text="Valore"/>
+      </columns>
+   </TableView>
+   <Button fx:id="cercaValoreButton" layoutX="270.0" layoutY="956.0" mnemonicParsing="false" onAction="#cercaValore"
+           text="Cerca"/>
+   <ComboBox fx:id="valueForSearchSelectedComboBox" layoutX="38.0" layoutY="955.0"
+             onAction="#onClickValueForSearchSelectedComboBox" prefHeight="25.0" prefWidth="118.0"
+             promptText="Tipo di dato">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Tensione"/>
+            <String fx:value="Energia"/>
+            <String fx:value="Potenza"/>
+            <String fx:value="Corrente"/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <Label layoutX="38.0" layoutY="928.0" text="Cerca a che ora si è manifestato un certo dato:"/>
+   <Label layoutX="411.0" layoutY="930.0" text="Cerca che dato si è manifestato nella fascia oraria selezionata:"/>
+   <ComboBox fx:id="comboBoxOra1" layoutX="412.0" layoutY="982.0" onAction="#onClickComboBoxOra1" prefHeight="25.0"
+             prefWidth="66.0" promptText="H">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="00"/>
+            <String fx:value="01"/>
+            <String fx:value="02"/>
+            <String fx:value="03"/>
+            <String fx:value="04"/>
+            <String fx:value="05"/>
+            <String fx:value="06"/>
+            <String fx:value="07"/>
+            <String fx:value="08"/>
+            <String fx:value="09"/>
+            <String fx:value="10"/>
+            <String fx:value="11"/>
+            <String fx:value="12"/>
+            <String fx:value="13"/>
+            <String fx:value="14"/>
+            <String fx:value="15"/>
+            <String fx:value="16"/>
+            <String fx:value="17"/>
+            <String fx:value="18"/>
+            <String fx:value="19"/>
+            <String fx:value="20"/>
+            <String fx:value="21"/>
+            <String fx:value="22"/>
+            <String fx:value="23"/>
+            <String fx:value="24"/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <Label layoutX="60.0" layoutY="638.0" text="Il valore di corrente più alto è:"/>
+   <Label layoutX="60.0" layoutY="697.0" text="Il valore di tensione più alto è:"/>
+   <TextField fx:id="maxCorrenteTextField" editable="false" layoutX="242.0" layoutY="638.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <TextField fx:id="maxTensioneTextField" editable="false" layoutX="242.0" layoutY="697.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <Label layoutX="385.0" layoutY="638.0" text="alle ore"/>
+   <Label layoutX="385.0" layoutY="697.0" text="alle ore"/>
+   <TextArea fx:id="maxCorrenteTextArea" editable="false" layoutX="446.0" layoutY="638.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <TextArea fx:id="maxTensioneTextArea" editable="false" layoutX="446.0" layoutY="697.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <ComboBox fx:id="comboBoxMinuto1" disable="true" layoutX="495.0" layoutY="983.0" onAction="#onClickComboBoxMinuto1"
+             prefHeight="25.0" prefWidth="66.0" promptText="M">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="00"/>
+            <String fx:value="01"/>
+            <String fx:value="02"/>
+            <String fx:value="03"/>
+            <String fx:value="04"/>
+            <String fx:value="05"/>
+            <String fx:value="06"/>
+            <String fx:value="07"/>
+            <String fx:value="08"/>
+            <String fx:value="09"/>
+            <String fx:value="10"/>
+            <String fx:value="11"/>
+            <String fx:value="12"/>
+            <String fx:value="13"/>
+            <String fx:value="14"/>
+            <String fx:value="15"/>
+            <String fx:value="16"/>
+            <String fx:value="17"/>
+            <String fx:value="18"/>
+            <String fx:value="19"/>
+            <String fx:value="20"/>
+            <String fx:value="21"/>
+            <String fx:value="22"/>
+            <String fx:value="23"/>
+            <String fx:value="24"/>
+            <String fx:value="25"/>
+            <String fx:value="26"/>
+            <String fx:value="27"/>
+            <String fx:value="28"/>
+            <String fx:value="29"/>
+            <String fx:value="30"/>
+            <String fx:value="31"/>
+            <String fx:value="32"/>
+            <String fx:value="33"/>
+            <String fx:value="34"/>
+            <String fx:value="35"/>
+            <String fx:value="36"/>
+            <String fx:value="37"/>
+            <String fx:value="38"/>
+            <String fx:value="39"/>
+            <String fx:value="40"/>
+            <String fx:value="41"/>
+            <String fx:value="42"/>
+            <String fx:value="43"/>
+            <String fx:value="44"/>
+            <String fx:value="45"/>
+            <String fx:value="46"/>
+            <String fx:value="47"/>
+            <String fx:value="48"/>
+            <String fx:value="49"/>
+            <String fx:value="50"/>
+            <String fx:value="51"/>
+            <String fx:value="52"/>
+            <String fx:value="53"/>
+            <String fx:value="54"/>
+            <String fx:value="55"/>
+            <String fx:value="56"/>
+            <String fx:value="57"/>
+            <String fx:value="58"/>
+            <String fx:value="59"/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <Label layoutX="483.0" layoutY="987.0" text=":"/>
+   <Button fx:id="cercaInUnRangeDiTempoButton" layoutX="771.0" layoutY="984.0" mnemonicParsing="false"
+           onAction="#cercaInUnRangeDiTempo" text="🔍"/>
+   <ComboBox fx:id="comboBoxOra2" disable="true" layoutX="604.0" layoutY="983.0" onAction="#onClickComboBoxOra2"
+             prefHeight="25.0" prefWidth="66.0" promptText="H">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="00"/>
+            <String fx:value="01"/>
+            <String fx:value="02"/>
+            <String fx:value="03"/>
+            <String fx:value="04"/>
+            <String fx:value="05"/>
+            <String fx:value="06"/>
+            <String fx:value="07"/>
+            <String fx:value="08"/>
+            <String fx:value="09"/>
+            <String fx:value="10"/>
+            <String fx:value="11"/>
+            <String fx:value="12"/>
+            <String fx:value="13"/>
+            <String fx:value="14"/>
+            <String fx:value="15"/>
+            <String fx:value="16"/>
+            <String fx:value="17"/>
+            <String fx:value="18"/>
+            <String fx:value="19"/>
+            <String fx:value="20"/>
+            <String fx:value="21"/>
+            <String fx:value="22"/>
+            <String fx:value="23"/>
+            <String fx:value="24"/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <ComboBox fx:id="comboBoxMinuto2" disable="true" layoutX="687.0" layoutY="984.0" onAction="#onClickComboBoxMinuto2"
+             prefHeight="25.0" prefWidth="66.0" promptText="M">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="00"/>
+            <String fx:value="01"/>
+            <String fx:value="02"/>
+            <String fx:value="03"/>
+            <String fx:value="04"/>
+            <String fx:value="05"/>
+            <String fx:value="06"/>
+            <String fx:value="07"/>
+            <String fx:value="08"/>
+            <String fx:value="09"/>
+            <String fx:value="10"/>
+            <String fx:value="11"/>
+            <String fx:value="12"/>
+            <String fx:value="13"/>
+            <String fx:value="14"/>
+            <String fx:value="15"/>
+            <String fx:value="16"/>
+            <String fx:value="17"/>
+            <String fx:value="18"/>
+            <String fx:value="19"/>
+            <String fx:value="20"/>
+            <String fx:value="21"/>
+            <String fx:value="22"/>
+            <String fx:value="23"/>
+            <String fx:value="24"/>
+            <String fx:value="25"/>
+            <String fx:value="26"/>
+            <String fx:value="27"/>
+            <String fx:value="28"/>
+            <String fx:value="29"/>
+            <String fx:value="30"/>
+            <String fx:value="31"/>
+            <String fx:value="32"/>
+            <String fx:value="33"/>
+            <String fx:value="34"/>
+            <String fx:value="35"/>
+            <String fx:value="36"/>
+            <String fx:value="37"/>
+            <String fx:value="38"/>
+            <String fx:value="39"/>
+            <String fx:value="40"/>
+            <String fx:value="41"/>
+            <String fx:value="42"/>
+            <String fx:value="43"/>
+            <String fx:value="44"/>
+            <String fx:value="45"/>
+            <String fx:value="46"/>
+            <String fx:value="47"/>
+            <String fx:value="48"/>
+            <String fx:value="49"/>
+            <String fx:value="50"/>
+            <String fx:value="51"/>
+            <String fx:value="52"/>
+            <String fx:value="53"/>
+            <String fx:value="54"/>
+            <String fx:value="55"/>
+            <String fx:value="56"/>
+            <String fx:value="57"/>
+            <String fx:value="58"/>
+            <String fx:value="59"/>
+         </FXCollections>
+      </items>
+   </ComboBox>
+   <Label layoutX="677.0" layoutY="987.0" text=":"/>
+   <Label fx:id="correnteLabelFasciaOrariaSelezionata" layoutX="570.0" layoutY="1230.0" text="EnerigaConsumata"/>
+   <Label layoutX="804.0" layoutY="638.0" text="Il valore di corrente più basso è:"/>
+   <Label layoutX="804.0" layoutY="697.0" text="Il valore di tensione più basso è:"/>
+   <TextField fx:id="minCorrenteTextField" editable="false" layoutX="994.0" layoutY="638.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <TextField fx:id="minTensioneTextField" editable="false" layoutX="994.0" layoutY="697.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <Label layoutX="1138.0" layoutY="638.0" text="alle ore"/>
+   <Label layoutX="1138.0" layoutY="697.0" text="alle ore"/>
+   <TextArea fx:id="minCorrenteTextArea" editable="false" layoutX="1199.0" layoutY="638.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <TextArea fx:id="minTensioneTextArea" editable="false" layoutX="1199.0" layoutY="697.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <TableView fx:id="valueFindedInAHourRangeTable" layoutX="411.0" layoutY="1020.0" prefHeight="200.0"
+              prefWidth="692.0">
+      <columns>
+         <TableColumn fx:id="valueToFindInAHourRangeColumnOra" prefWidth="45.0" text="Ora"/>
+         <TableColumn fx:id="valueToFindInAHourRangeColumnCorrente" prefWidth="173.0" text="Corrente (A)"/>
+         <TableColumn fx:id="valueToFindInAHourRangeColumnTensione" prefWidth="154.0" text="Tensione (V)"/>
+         <TableColumn fx:id="valueToFindInAHourRangeColumnPotenza" prefWidth="154.0" text="Potenza (kW)"/>
+         <TableColumn fx:id="valueToFindInAHourRangeColumnEnergia" prefWidth="154.0" text="Energia (kWh)"/>
+      </columns>
+   </TableView>
+   <TableView fx:id="cabinetTable" layoutX="33.0" layoutY="77.0" prefHeight="477.0" prefWidth="755.0">
+      <columns>
+         <TableColumn fx:id="columnOra" prefWidth="45.0" text="Ora"/>
+         <TableColumn fx:id="columnCorrente" prefWidth="185.0" text="Corrente (A)"/>
+         <TableColumn fx:id="columnTensione" prefWidth="166.0" text="Tensione (V)"/>
+         <TableColumn fx:id="columnPotenza" prefWidth="175.0" text="Potenza (kW)"/>
+         <TableColumn fx:id="columnEnergia" prefWidth="175.0" text="Energia (kWh)"/>
+      </columns>
+   </TableView>
+   <LineChart fx:id="lineChartCabinet" layoutX="847.0" layoutY="110.0" prefHeight="463.0" prefWidth="629.0"
+              style="-fx-background-color: #ffffff;">
+      <xAxis>
+         <CategoryAxis side="BOTTOM" fx:id="xAxis"/>
+      </xAxis>
+      <yAxis>
+         <NumberAxis fx:id="yAxis" side="LEFT"/>
+      </yAxis>
+   </LineChart>
+   <ComboBox fx:id="valueForChartComboBox" layoutX="870.0" layoutY="77.0" onAction="#valueForChartComboBoxChanged"
+             prefWidth="150.0">
+      <items>
+         <FXCollections fx:factory="observableArrayList">
+            <String fx:value="Tensione"/>
+            <String fx:value="Energia"/>
+            <String fx:value="Potenza"/>
+            <String fx:value="Corrente"/>
+         </FXCollections>
+      </items>
+      <value>
+         <String fx:value="Tensione"/>
+      </value>
+   </ComboBox>
+   <Button fx:id="refreshButton" layoutX="1070.0" layoutY="984.0" mnemonicParsing="false"
+           onAction="#refreshButtonClicked">
+      <graphic>
+         <ImageView fitHeight="19.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/refreshIcon.png"/>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Label layoutX="415.0" layoutY="960.0" text="Ora di inizio dell'intervallo"/>
+   <Label layoutX="603.0" layoutY="960.0" text="Ora di fine dell'intervallo"/>
+   <Button fx:id="generalExportExcelButton" layoutX="33.0" layoutY="559.0" mnemonicParsing="false"
+           onAction="#exportGeneralTableIntoExcel" text="Esporta in Excel">
+      <graphic>
+         <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/exportExcelIcon.png"/>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="valueFindedInAHourRangeExportExcelButton" disable="true" layoutX="412.0" layoutY="1227.0"
+           mnemonicParsing="false" onAction="#exportValueFindedInAHourRangeTableIntoExcel" text="Esporta in Excel">
+      <graphic>
+         <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/exportExcelIcon.png"/>
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="compareToAnotherCabinetButton" layoutX="1182.0" layoutY="1154.0" mnemonicParsing="false"
+           onAction="#goToSelectionOfAnotherCabinet" prefHeight="66.0" prefWidth="219.0"
+           text="Compara la cabina con un'altra data"/>
+   <Label layoutX="60.0" layoutY="756.0" text="Il valore di potenza più alto è:"/>
+   <TextField fx:id="maxPotenzaTextField" editable="false" layoutX="242.0" layoutY="756.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <Label layoutX="385.0" layoutY="756.0" text="alle ore"/>
+   <TextArea fx:id="maxPotenzaTextArea" editable="false" layoutX="446.0" layoutY="756.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <Label layoutX="804.0" layoutY="756.0" text="Il valore di potenza più basso è:"/>
+   <TextField fx:id="minPotenzaTextField" editable="false" layoutX="994.0" layoutY="756.0" prefHeight="25.0"
+              prefWidth="125.0"/>
+   <Label layoutX="1138.0" layoutY="756.0" text="alle ore"/>
+   <TextArea fx:id="minPotenzaTextArea" editable="false" layoutX="1199.0" layoutY="756.0" prefHeight="25.0"
+             prefWidth="200.0"/>
+   <Line endX="1400.5" layoutX="101.0" layoutY="608.0" startX="-100.0" stroke="#aea7a7"/>
+   <Line endX="1399.5" layoutX="101.0" layoutY="819.0" startX="-100.0" stroke="#aea7a7"/>
+   <Label layoutX="1155.0" layoutY="841.0" text="Media Corrente: "/>
+   <TextField fx:id="textfieldMediaCorrente" editable="false" layoutX="1260.0" layoutY="841.0" prefHeight="30.0"
+              prefWidth="200.0"/>
+   <Label layoutX="414.0" layoutY="841.0" text="Media Tensione:"/>
+   <TextField fx:id="textfieldMediaTensione" editable="false" layoutX="513.0" layoutY="841.0" prefHeight="30.0"
+              prefWidth="200.0"/>
+   <Label layoutX="790.0" layoutY="841.0" text="Media Potenza:"/>
+   <TextField fx:id="textfieldMediaPotenza" editable="false" layoutX="888.0" layoutY="841.0" prefHeight="30.0"
+              prefWidth="200.0"/>
+   <Label layoutX="26.0" layoutY="841.0" text="Energia consumata:"/>
+   <TextField fx:id="textfieldEnergiaConsumata" editable="false" layoutX="147.0" layoutY="841.0" prefHeight="30.0"
+              prefWidth="200.0"/>
+   <Line endX="1401.0" layoutX="99.0" layoutY="904.0" startX="-100.0" stroke="#aea7a7"/>
+</AnchorPane>

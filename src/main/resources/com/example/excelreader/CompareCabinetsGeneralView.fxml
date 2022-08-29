@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="826.0" prefWidth="1503.0" style="-fx-background-color: #ffffff;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.excelreader.Controller.CompareCabinetsGeneralController">
+    <TableView fx:id="cabinet1Table" layoutX="218.0" layoutY="55.0" prefHeight="334.0" prefWidth="745.0">
+        <columns>
+            <TableColumn fx:id="columnOra1" prefWidth="45.0" text="Ora" />
+            <TableColumn fx:id="columnCorrente1" prefWidth="170.0" text="Corrente (A)" />
+            <TableColumn fx:id="columnTensione1" prefWidth="166.0" text="Tensione (V)" />
+            <TableColumn fx:id="columnPotenza1" prefWidth="175.0" text="Potenza (kW)" />
+            <TableColumn fx:id="columnEnergia1" prefWidth="175.0" text="Energia (kWh)" />
+        </columns>
+    </TableView>
+    <TableView fx:id="cabinet2Table" layoutX="218.0" layoutY="439.0" prefHeight="334.0" prefWidth="745.0">
+        <columns>
+            <TableColumn fx:id="columnOra2" prefWidth="45.0" text="Ora" />
+            <TableColumn fx:id="columnCorrente2" prefWidth="170.0" text="Corrente (A)" />
+            <TableColumn fx:id="columnTensione2" prefWidth="166.0" text="Tensione (V)" />
+            <TableColumn fx:id="columnPotenza2" prefWidth="175.0" text="Potenza (kW)" />
+            <TableColumn fx:id="columnEnergia2" prefWidth="175.0" text="Energia (kWh)" />
+        </columns>
+    </TableView>
+    <Label fx:id="nomeCabina1Label" layoutX="218.0" layoutY="31.0" text="Cabina1" />
+    <Label fx:id="nomeCabina2Label" layoutX="218.0" layoutY="416.0" text="Cabina2" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#004479" height="832.0" layoutY="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="108.0" />
+    <Button fx:id="backButton" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#back" prefHeight="25.0" prefWidth="70.0">
+        <font>
+          <Font size="18.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="16.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../../images/backIcon.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="specificsButton" layoutX="14.0" layoutY="92.0" mnemonicParsing="false" onAction="#goToSpecifics" text="Specifiche" />
+    <Button fx:id="graphButton" layoutX="14.0" layoutY="165.0" mnemonicParsing="false" onAction="#goToGraphs" prefHeight="25.0" prefWidth="70.0" text="Grafici" />
+    <Button fx:id="table1ExportExcelButton" layoutX="986.0" layoutY="56.0" mnemonicParsing="false" onAction="#exportTable1IntoExcel" text="Esporta in Excel">
+        <graphic>
+            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../../images/exportExcelIcon.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="table2ExportExcelButton" layoutX="986.0" layoutY="439.0" mnemonicParsing="false" onAction="#exportTable2IntoExcel" text="Esporta in Excel">
+        <graphic>
+            <ImageView fitHeight="26.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../../images/exportExcelIcon.png" />
+            </ImageView>
+        </graphic>
+    </Button>
+   <Line endX="1291.0" layoutX="209.0" layoutY="408.0" startX="-100.0" stroke="#aea7a7" />
+   <Label layoutX="1003.0" layoutY="118.0" text="Consumo Energia:" />
+   <Label layoutX="1003.0" layoutY="178.0" text="Media Potenza:" />
+   <Label layoutX="1003.0" layoutY="250.0" text="Media Tensione:" />
+   <Label layoutX="1003.0" layoutY="324.0" text="Media Corrente:" />
+   <TextField fx:id="textFieldConsumoEnergiaCabina1" layoutX="1182.0" layoutY="118.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaPotenzaCabina1" layoutX="1182.0" layoutY="178.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaTensioneCabina1" layoutX="1182.0" layoutY="250.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaCorrenteCabina1" layoutX="1182.0" layoutY="324.0" prefHeight="30.0" prefWidth="205.0" />
+   <Label layoutX="1013.0" layoutY="508.0" text="Consumo Energia:" />
+   <Label layoutX="1013.0" layoutY="568.0" text="Media Potenza:" />
+   <Label layoutX="1013.0" layoutY="640.0" text="Media Tensione:" />
+   <Label layoutX="1013.0" layoutY="714.0" text="Media Corrente:" />
+   <TextField fx:id="textFieldConsumoEnergiaCabina2" layoutX="1192.0" layoutY="508.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaPotenzaCabina2" layoutX="1192.0" layoutY="568.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaTensioneCabina2" layoutX="1192.0" layoutY="640.0" prefHeight="30.0" prefWidth="205.0" />
+   <TextField fx:id="textFieldMediaCorrenteCabina2" layoutX="1192.0" layoutY="714.0" prefHeight="30.0" prefWidth="205.0" />
+   <Button layoutX="1184.0" layoutY="439.0" mnemonicParsing="false" onAction="#goToOverviewCabinet2" text="Vai all'analisi completa della cabina" />
+   <Button layoutX="1184.0" layoutY="58.0" mnemonicParsing="false" onAction="#goToOverviewCabinet1" text="Vai all'analisi completa della cabina" />
+</AnchorPane>

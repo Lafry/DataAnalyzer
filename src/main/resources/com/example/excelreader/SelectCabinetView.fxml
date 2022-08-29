@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.excelreader.Controller.SelectCabinetController">
+
+   <Button fx:id="backButton" layoutX="32.0" layoutY="24.0" mnemonicParsing="false" onAction="#back" stylesheets="@style.css">
+      <graphic>
+         <ImageView fitHeight="16.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/backIcon.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <ComboBox fx:id="cabinetsComboBox" disable="true" layoutX="172.0" layoutY="170.0" onAction="#cabinetSelected" prefHeight="25.0" prefWidth="251.0" promptText="Seleziona una cabina" stylesheets="@style.css" />
+   <ComboBox fx:id="cabinetsComboBox1" disable="true" layoutX="173.0" layoutY="220.0" onAction="#cabinetSelected2" prefHeight="25.0" prefWidth="194.0" promptText="Seleziona una cabina" stylesheets="@style.css" />
+   <Button fx:id="resetComboBox2Button" disable="true" layoutX="393.0" layoutY="219.0" mnemonicParsing="false" onAction="#refreshSecondCombobox" prefHeight="17.0" prefWidth="25.0" stylesheets="@style.css">
+      <graphic>
+         <ImageView fitHeight="16.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/refreshIcon.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="goButton" disable="true" layoutX="224.0" layoutY="268.0" mnemonicParsing="false" onAction="#goButtonPressed" prefHeight="25.0" prefWidth="141.0" stylesheets="@style.css" text="Analizza cabina" />
+   <Button fx:id="goToTotalConsumeButton" disable="true" layoutX="224.0" layoutY="315.0" mnemonicParsing="false" onAction="#buttonTotalConsumeClicked" prefWidth="141.0" stylesheets="@style.css" text="Vai al consumo mensile" />
+   <DatePicker fx:id="datePicker" layoutX="169.0" layoutY="88.0" onAction="#onDatePickerClicked" prefHeight="25.0" prefWidth="251.0" stylesheets="@datePickerStyle.css" />
+   <Label layoutX="190.0" layoutY="47.0" text="Seleziona una data da analizzare:">
+      <font>
+         <Font name="Dubai Light" size="15.0" />
+      </font></Label>
+</AnchorPane>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;"
+            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.excelreader.Controller.CompareToAnotherCabinetSelectDateController">
+   <DatePicker fx:id="datePicker" layoutX="175.0" layoutY="136.0" onAction="#datePickerClicked" prefHeight="25.0"
+               prefWidth="251.0" stylesheets="@datePickerStyle.css"/>
+   <ComboBox fx:id="comboBoxSelectSecondCabinet" disable="true" layoutX="175.0" layoutY="200.0"
+             onAction="#cabinetFromComboBoxSelected" prefHeight="25.0" prefWidth="251.0"
+             promptText="Seleziona una cabina" stylesheets="@style.css"/>
+   <Button fx:id="goToComparisonButton" disable="true" layoutX="249.0" layoutY="262.0" mnemonicParsing="false"
+           onAction="#goToComparisonButtonClicked" stylesheets="@style.css" text="Compara cabine"/>
+   <Label fx:id="labelCompareTo" layoutX="69.0" layoutY="14.0" text="Compara con DATACABINANOMECABINA">
+      <font>
+         <Font name="Dubai Light" size="20.0"/>
+      </font>
+   </Label>
+   <Button fx:id="backButton" layoutX="23.0" layoutY="16.0" mnemonicParsing="false" onAction="#back"
+           stylesheets="@style.css">
+      <graphic>
+         <ImageView fitHeight="16.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../../../images/backIcon.png"/>
+         </ImageView>
+      </graphic>
+   </Button>
+</AnchorPane>

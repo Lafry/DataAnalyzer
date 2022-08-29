@@ -1,0 +1,17 @@
+.date-picker{
+    -fx-font-family: "Dubai Light";
+    -fx-text-fill: #004479;
+}
+
+.date-picker > .arrow-button {
+    -fx-cursor: hand;
+    -fx-background-color: gold;
+}
+
+.button{
+    -fx-font-family: "Dubai Bold";
+    -fx-background-color: #fcd912;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #004479;
+    -fx-cursor: hand;
+}

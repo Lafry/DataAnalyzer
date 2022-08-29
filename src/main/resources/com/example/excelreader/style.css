@@ -1,0 +1,94 @@
+.text-field{
+    -fx-font-family: "Dubai Light";
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.text-field:focused {
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
+
+.button{
+    -fx-font-family: "Dubai Bold";
+    -fx-background-color: #fcd912;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #004479;
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-family: "Dubai Light";
+    -fx-font-size: 14;
+}
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-width: 2;
+    -fx-border-color: #c6c6c6;
+    -fx-font-family: "Dubai Light";
+    -fx-pref-height: 25;
+    -fx-pref-width: 200;
+}
+
+.text-area .scroll-bar:vertical {
+    -fx-pref-width: 1;
+    -fx-opacity: 0;
+}
+.text-area .scroll-bar:horizontal {
+    -fx-pref-height: 10;
+    -fx-opacity: 0;
+}
+
+.text-area .viewport{
+    -fx-background-color: transparent;
+}
+.text-area .content{
+    -fx-background-color: transparent;
+}
+
+.tab{
+    -fx-background-insets: 0 1 0 1,0,0;
+}
+
+
+.tab:selected .tab-label {
+    -fx-alignment: CENTER;
+    -fx-text-fill: gold;
+}
+
+.date-picker{
+    -fx-font-family: "Dubai Light";
+    -fx-text-fill: #004479;
+    -fx-background-insets: 1 0 1 1;
+    -fx-background-radius: 2 0 0 2;
+}
+
+.date-picker > .arrow-button {
+    -fx-cursor: hand;
+    -fx-background-color: gold;
+}
+
+.combo-box .cell{
+    -fx-text-fill: #004479;
+    -fx-font: 12px "Dubai Light";
+}
+.customcell {
+    -fx-text-fill: #004479;
+    -fx-font: 12px "Dubai Light";
+    /* No alternate highlighting */
+}
+
+.chart-content{
+    -fx-background-color: transparent;
+}
+
+.chart-legend{
+    -fx-background-color: transparent;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}

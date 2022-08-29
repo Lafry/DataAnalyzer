@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Main-Class: com.example.excelreader.Launcher
+Class-Path: controlsfx-11.1.1.jar ikonli-javafx-12.3.0.jar xmlbeans-5.0.
+ 3.jar javafx-base-18.0.1-win.jar jackson-databind-2.12.1.jar bootstrapf
+ x-core-0.4.0.jar poi-ooxml-lite-5.2.2.jar kotlin-stdlib-1.5.10-modular.
+ jar jackson-annotations-2.12.1.jar log4j-api-2.17.2.jar curvesapi-1.07.
+ jar fxgl-11.17.jar audio-4.0.9.jar javafx-controls-18.0.1-win.jar ikonl
+ i-core-12.3.0.jar javafx-graphics-18.0.1-win.jar fxgl-entity-11.17.jar 
+ commons-collections4-4.4.jar reload4j-1.2.19.jar javafx-web-18.0.1-win.
+ jar javafx-base-18.0.1.jar poi-ooxml-5.2.2.jar jackson-core-2.12.1.jar 
+ kotlin-stdlib-common-1.5.10.jar slf4j-api-1.7.36.jar fxgl-scene-11.17.j
+ ar javafx-graphics-18.0.1.jar slf4j-reload4j-1.7.36.jar SparseBitSet-1.
+ 2.jar javafx-fxml-18.0.1.jar validatorfx-0.2.1.jar fxgl-gameplay-11.17.
+ jar commons-math3-3.6.1.jar tilesfx-11.48.jar javafx-media-18.0.1-win.j
+ ar fxgl-core-11.17.jar poi-5.2.2.jar annotations-13.0.jar commons-io-2.
+ 11.0.jar formsfx-core-11.3.2.jar storage-4.0.9.jar util-4.0.9.jar javaf
+ x-controls-18.0.1.jar javafx-web-18.0.1.jar commons-compress-1.21.jar l
+ og4j-to-slf4j-2.17.2.jar fxgl-io-11.17.jar javafx-fxml-18.0.1-win.jar j
+ avafx-media-18.0.1.jar commons-codec-1.15.jar lifecycle-4.0.9.jar
+
