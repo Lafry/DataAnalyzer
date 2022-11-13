@@ -7,7 +7,7 @@ import java.util.List;
 public class Utils {
     public static String generateExcelPath(String day, String month, int year) {
         //Il path generato trova i file condivisi dal server con indirizzo ip indicato. Essendo statico l'ip non cambierà
-        return("\\\\192.168.20.39\\Scada\\Database\\"+year+"\\"+month+"\\"+day+".xlsx");
+        return("\\PATH_FROM_DB\\"+year+"\\"+month+"\\"+day+".xlsx");
     }
 
     public static StringBuilder convertMomentsInHourAndMinutes(List<Integer> listMoments){
