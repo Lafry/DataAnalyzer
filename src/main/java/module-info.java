@@ -9,7 +9,6 @@ module com.example.excelreader {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
-    requires com.almasb.fxgl.all;
     requires org.apache.poi.ooxml;
     requires reload4j;
 
