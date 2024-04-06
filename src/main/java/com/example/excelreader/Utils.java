@@ -13,8 +13,9 @@ public class Utils {
 
     public static String generateExcelPath(String day, String month, int year) {
         //Il path generato trova i file condivisi dal server con indirizzo ip indicato. Essendo statico l'ip non cambierà
-        String ipServer = getIPFromFile();
-        return("\\\\"+ipServer+"\\Scada\\Database\\"+year+"\\"+month+"\\"+day+".xlsx");
+        String ipServer = getIPFromConfig();
+        String pathServer = getPathFromConfig();
+        return("\\\\"+ipServer+pathServer+"\\"+year+"\\"+month+"\\"+day+".xlsx");
     }
 
     public static StringBuilder convertMomentsInHourAndMinutes(List<Integer> listMoments){
@@ -48,10 +49,14 @@ public class Utils {
         };
     }
 
-    public static void displayDialogError(String stringError){
+    public static void displayDialogError(String stringError, boolean closeProgram){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ERROR!");
         alert.setHeaderText(stringError);
+        //Se il valore è true, allora premere ok nella dialog di errore comporterà la chiusura del programma
+        if(closeProgram){
+            alert.setOnCloseRequest(event -> System.exit(0));
+        }
         alert.showAndWait();
     }
 
@@ -73,15 +78,23 @@ public class Utils {
         return result;
     }
 
-    public static String getIPFromFile() {
+    public static String getIPFromConfig(){
+        return getValueFormConfig("ip");
+    }
+
+    private static String getPathFromConfig() {
+        return getValueFormConfig("path");
+    }
+
+    public static String getValueFormConfig(String key) {
         File file = new File(CONFIGURATION_FILE_PATH);
         try {
             Scanner scanner = new Scanner(file);
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-                if (line.startsWith("ip=")) {
-                    // Trovato il valore "ip="
-                    // Estrai il valore numerico successivo al simbolo "="
+                if (line.startsWith(key+"=")) {
+                    // Trovato il valore "KEY_VALUE="
+                    // Estrai il valore successivo al simbolo "="
                     String[] parts = line.split("=");
                     if (parts.length == 2) {
                         return parts[1].trim();
@@ -90,13 +103,9 @@ public class Utils {
             }
             scanner.close();
         } catch (FileNotFoundException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERROR!");
-            alert.setHeaderText("File di configurazione non trovato, verificare la corretta posizione del file di configurazione");
-            alert.setOnCloseRequest(event -> System.exit(0));
-            alert.showAndWait();
+            displayDialogError("File di configurazione non trovato, verificare la corretta posizione del file di configurazione", true);
         }
-        return null; // Se non viene trovato il valore "ip="
+        return null; // Se non viene trovato il valore "KEY_VALUE="
     }
 
 }

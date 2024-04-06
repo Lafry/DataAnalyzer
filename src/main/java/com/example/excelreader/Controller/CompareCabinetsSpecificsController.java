@@ -68,7 +68,7 @@ public class CompareCabinetsSpecificsController implements Initializable {
                 comboBoxMinute1Index, comboBoxOra2Index, comboBoxMinute2Index);
         //l'intero blocco verifica che l'intervallo di tempo sia coerente, ossia che l'ora di inizio non sia maggiore di quella di fine
         if(moment1>moment2) {
-            Utils.displayDialogError("L'ora di inizio del range di tempo è maggiore dell'ora di fine");
+            Utils.displayDialogError("L'ora di inizio del range di tempo è maggiore dell'ora di fine", false);
         }else {
             graphicsController.populateTableValueToFindInAHourRange(recordCabinetListCabinet1, valueFindedInAHourRangeTableCabinet1, valueToFindInAHourRangeColumnOraCabinet1, valueToFindInAHourRangeColumnEnergiaCabinet1, valueToFindInAHourRangeColumnTensioneCabinet1, valueToFindInAHourRangeColumnCorrenteCabinet1, valueToFindInAHourRangeColumnPotenzaCabinet1);
             graphicsController.populateTableValueToFindInAHourRange(recordCabinetListCabinet2, valueFindedInAHourRangeTableCabinet2, valueToFindInAHourRangeColumnOraCabinet2, valueToFindInAHourRangeColumnEnergiaCabinet2, valueToFindInAHourRangeColumnTensioneCabinet2, valueToFindInAHourRangeColumnCorrenteCabinet2, valueToFindInAHourRangeColumnPotenzaCabinet2);
@@ -157,7 +157,7 @@ public class CompareCabinetsSpecificsController implements Initializable {
             graphicsController.exportTableIntoExcelFile(valueFindedInAHourRangeTableCabinet1, (nomeCabina+"_"+date+"_from_"+from+"_to_"+to));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 
@@ -170,7 +170,7 @@ public class CompareCabinetsSpecificsController implements Initializable {
             graphicsController.exportTableIntoExcelFile(valueFindedInAHourRangeTableCabinet2, (nomeCabina+"_"+date+"_from_"+from+"_to_"+to));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 }

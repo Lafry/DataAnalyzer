@@ -44,7 +44,7 @@ public class SelectCabinetController implements Initializable {
             public void updateItem(LocalDate date, boolean empty) {
                 //Disattiva nel date picker le date superiori alla data del giorno corrente
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.isAfter(LocalDate.now()));
             }
         });
 
@@ -65,7 +65,7 @@ public class SelectCabinetController implements Initializable {
             cabinetsComboBox.setDisable(false);
             goToTotalConsumeButton.setDisable(false);
         }catch (Exception e){
-            Utils.displayDialogError("File non trovato, verificare che il server sia attivo e connesso alla rete, \n o che il file non sia aperto da un altro programma");
+            Utils.displayDialogError("File non trovato, verificare che il server sia attivo e connesso alla rete, \n o che il file non sia aperto da un altro programma", false);
         }
 
     }

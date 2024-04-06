@@ -102,7 +102,7 @@ public class CompareCabinetsGeneralController implements Initializable {
             graphicsController.exportTableIntoExcelFile(cabinet1Table, (nomeCabina+"_"+date));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 
@@ -113,7 +113,7 @@ public class CompareCabinetsGeneralController implements Initializable {
             graphicsController.exportTableIntoExcelFile(cabinet2Table, (nomeCabina+"_"+date));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 

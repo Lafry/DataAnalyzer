@@ -39,7 +39,7 @@ public class CompareToAnotherCabinetSelectDateController implements Initializabl
             public void updateItem(LocalDate date, boolean empty) {
                 //Disattiva nel date picker le date superiori alla data del giorno corrente
                 super.updateItem(date, empty);
-                setDisable(empty || date.compareTo(LocalDate.now()) > 0 );
+                setDisable(empty || date.isAfter(LocalDate.now()));
             }
         });
 
@@ -70,7 +70,7 @@ public class CompareToAnotherCabinetSelectDateController implements Initializabl
                 }
                 comboBoxSelectSecondCabinet.setDisable(false);
             }catch (Exception e){
-                Utils.displayDialogError("Non esistono dati per la data selezionata");
+                Utils.displayDialogError("Non esistono dati per la data selezionata", false);
             }
         }
 
@@ -79,7 +79,7 @@ public class CompareToAnotherCabinetSelectDateController implements Initializabl
     public void goToComparisonButtonClicked(ActionEvent actionEvent) {
         if(Objects.equals(energyController.getCabinetName(SelectCabinetController.getSheet(), SelectCabinetController.getSelectedCabinet()), energyController.getCabinetName(SelectCabinetController.getSheet2(), SelectCabinetController.getSelectedCabinet2()))
             && Objects.equals(SelectCabinetController.getDateOfDatePicker(), SelectCabinetController.getDateOfDatePicker2()))
-            Utils.displayDialogError("La cabina selezionata è uguale a quella di partenza. Selezionarne un'altra");
+            Utils.displayDialogError("La cabina selezionata è uguale a quella di partenza. Selezionarne un'altra", false);
         else
             openCabinetComparator(actionEvent);
     }

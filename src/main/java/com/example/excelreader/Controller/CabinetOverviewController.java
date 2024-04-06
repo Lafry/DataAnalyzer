@@ -97,7 +97,7 @@ public class CabinetOverviewController implements Initializable {
             List<Integer> listMoments = energyController.seeAtWhatTimeTheValueIsLikeTheInput(sheet, SelectCabinetController.getSelectedCabinet(), valueForSearchSelectedComboBox.getValue().toLowerCase(), value);
 
             if(listMoments.isEmpty()){
-                Utils.displayDialogError("Valore non trovato");
+                Utils.displayDialogError("Valore non trovato", false);
             }else{
                 //Lista dei momenti convertita in stringhe di ore e minuti
                 List<String> listMomentInString = Utils.convertMomentsIntoHourAndMinute(listMoments);
@@ -106,7 +106,7 @@ public class CabinetOverviewController implements Initializable {
             }
 
         }catch (ParseException parseException){
-            Utils.displayDialogError("Valore inserito non corretto");
+            Utils.displayDialogError("Valore inserito non corretto", false);
         }
     }
 
@@ -138,7 +138,7 @@ public class CabinetOverviewController implements Initializable {
 
         //l'intero blocco verifica che l'intervallo di tempo sia coerente, ossia che l'ora di inizio non sia maggiore di quella di fine
         if(moment1>moment2) {
-            Utils.displayDialogError("L'ora di inizio del range di tempo è maggiore dell'ora di fine");
+            Utils.displayDialogError("L'ora di inizio del range di tempo è maggiore dell'ora di fine", false);
         }else {
             graphicsController.populateTableValueToFindInAHourRange(recordCabinetList, valueFindedInAHourRangeTable, valueToFindInAHourRangeColumnOra, valueToFindInAHourRangeColumnEnergia, valueToFindInAHourRangeColumnTensione, valueToFindInAHourRangeColumnCorrente, valueToFindInAHourRangeColumnPotenza);
             correnteLabelFasciaOrariaSelezionata.setVisible(true);
@@ -208,7 +208,7 @@ public class CabinetOverviewController implements Initializable {
             graphicsController.exportTableIntoExcelFile(cabinetTable, (nomeCabina+"_"+date));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 
@@ -221,7 +221,7 @@ public class CabinetOverviewController implements Initializable {
             graphicsController.exportTableIntoExcelFile(valueFindedInAHourRangeTable, (nomeCabina+"_"+date+"_from_"+from+"_to_"+to));
             Utils.displayDialogInformation("Tabella correttamente esportata. Controlla nella cartella Documenti");
         }catch (IOException e){
-            Utils.displayDialogError("Non è stato possibile esportare la tabella");
+            Utils.displayDialogError("Non è stato possibile esportare la tabella", false);
         }
     }
 

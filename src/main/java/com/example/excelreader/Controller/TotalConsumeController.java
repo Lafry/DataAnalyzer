@@ -77,7 +77,7 @@ public class TotalConsumeController implements Initializable {
         Platform.runLater(() -> {
             double consumoCorrente = energyController.calcolaConsumoMeseCorrente(31, monthComboBox.getSelectionModel().getSelectedItem(), Integer.parseInt(yearTextField.getText()));
             if(consumoCorrente==0) {
-                Utils.displayDialogError("C'è stato un errore. Ricontrolla i dati inseriti e riprova");
+                Utils.displayDialogError("C'è stato un errore. Ricontrolla i dati inseriti e riprova", false);
                 consumeTextField.setText("");
             }else {
                 labelMeseScelto.setText("Il consumo delle principali cabine nel mese di " + monthComboBox.getSelectionModel().getSelectedItem() + "  è:");
