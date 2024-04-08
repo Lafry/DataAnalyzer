@@ -2,17 +2,18 @@ package com.example.excelreader;
 
 import javafx.scene.control.Alert;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Properties;
 
 public class Utils {
-    private static final String CONFIGURATION_FILE_PATH = "C:\\Program Files\\DataAnalyzer\\config\\ipconfig.config";
+    //Posizione del file di configurazione. Come un programma con installer
+    private static final String CONFIGURATION_FILE_PATH = "C:\\Program Files\\DataAnalyzer\\config\\serverconfig.config";
 
     public static String generateExcelPath(String day, String month, int year) {
-        //Il path generato trova i file condivisi dal server con indirizzo ip indicato. Essendo statico l'ip non cambierà
+        //Il path generato trova i file condivisi dal server con indirizzo ip e path indicati nel file di configurazione
         String ipServer = getIPFromConfig();
         String pathServer = getPathFromConfig();
         return("\\\\"+ipServer+pathServer+"\\"+year+"\\"+month+"\\"+day+".xlsx");
@@ -79,33 +80,24 @@ public class Utils {
     }
 
     public static String getIPFromConfig(){
-        return getValueFormConfig("ip");
+        Properties p = setupProperties();
+        return p.getProperty("ip");
     }
 
     private static String getPathFromConfig() {
-        return getValueFormConfig("path");
+        Properties p = setupProperties();
+        return p.getProperty("path");
     }
 
-    public static String getValueFormConfig(String key) {
-        File file = new File(CONFIGURATION_FILE_PATH);
+    public static Properties setupProperties(){
+        Properties properties = new Properties();
         try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                if (line.startsWith(key+"=")) {
-                    // Trovato il valore "KEY_VALUE="
-                    // Estrai il valore successivo al simbolo "="
-                    String[] parts = line.split("=");
-                    if (parts.length == 2) {
-                        return parts[1].trim();
-                    }
-                }
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
+            properties.load(new FileInputStream(CONFIGURATION_FILE_PATH));
+        } catch (IOException e) {
             displayDialogError("File di configurazione non trovato, verificare la corretta posizione del file di configurazione", true);
         }
-        return null; // Se non viene trovato il valore "KEY_VALUE="
+        return properties;
+
     }
 
 }
