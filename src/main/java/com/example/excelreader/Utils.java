@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class Utils {
     //Posizione del file di configurazione. Come un programma con installer
-    private static final String CONFIGURATION_FILE_PATH = "C:\\Program Files\\DataAnalyzer\\config\\serverconfig.config";
+    private static final String CONFIGURATION_FILE_PATH = "C:\\Program Files (x86)\\DataAnalyzer\\config\\serverconfig.config";
 
     public static String generateExcelPath(String day, String month, int year) {
         //Il path generato trova i file condivisi dal server con indirizzo ip e path indicati nel file di configurazione
